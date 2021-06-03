@@ -1,0 +1,116 @@
+<mvc:View
+	controllerName="library.controller.BookList"
+	xmlns="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:m="sap.m">
+	<m:SearchField search=".onSearchBooks" />
+	<m:FlexBox>
+		<m:CheckBox
+			text="Title"
+			id="cb_title" />
+		<m:CheckBox
+			text="Autor"
+			id="cb_author" />
+		<m:CheckBox
+			text="First Name"
+			id="cb_first" />
+		<m:CheckBox
+			text="Last Name"
+			id="cb_last" />
+	</m:FlexBox>
+	<Table
+		id="idBooksTable"
+		selectionMode="None"
+		alternateRowColors="true"
+		visibleRowCount="20"
+		rows="{/CheckedOutSet}">
+		<columns>
+			<Column
+				id="title_col"
+				sortProperty="Title">
+				<m:Label text="Title" />
+				<template>
+					<m:Text
+						text="{Title}"
+						wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				id="isbn_col"
+				sortProperty="BooksId">
+				<m:Label text="ISBN" />
+				<template>
+					<m:Text
+						text="{BooksId}"
+						wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				id="author_col"
+				sortProperty="Author">
+				<m:Label text="Author" />
+				<template>
+					<m:Text
+						text="{Author}"
+						wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				id="firstName_col"
+				sortProperty="FirstName">
+				<m:Label text="FirstName" />
+				<template>
+					<m:Text
+						text="{FirstName}"
+						wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				id="lastName_col"
+				sortProperty="LastName">
+				<m:Label text="LastName" />
+				<template>
+					<m:Text
+						text="{LastName}"
+						wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				id="userName_col"
+				sortProperty="UserName">
+				<m:Label text="UserName" />
+				<template>
+					<m:Text
+						text="{UserName}"
+						wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				id="checkedOut_col"
+				sortProperty="DateCheckout">
+				<m:Label text="Checked out on" />
+				<template>
+					<m:Text
+						text="{
+						path: 'DateCheckout',
+						formatter: '.formatter.date'
+					}"
+						wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				id="returnBy_col"
+				sortProperty="DateReturn">
+				<m:Label text="Return by" />
+				<template>
+					<m:Text
+						text="{
+							path: 'DateReturn',
+							formatter: '.formatter.date'
+						}"
+						wrapping="false" />
+				</template>
+			</Column>
+		</columns>
+	</Table>
+</mvc:View>
